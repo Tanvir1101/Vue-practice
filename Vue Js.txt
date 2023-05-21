@@ -1,0 +1,34 @@
+DIRECTIVES: 
+v-text: for binding text and rendering.(rarely used)
+v-html: for binding html tag along side with the text and rendering.(hack problems)
+v-bind: for binding html attributes.
+v-bind(class): for binding classes which can be used for dynamic classes.
+v-bind(style): for binding styles which can be used for dynamic styling.
+
+CONTROL FLOW: 
+index.html (contains the root dom node) => <div> with id "app" =>
+main.js () => createApp imported from 'vue' => App imported from ./App.vue => (#app) is mounted with cearteApp(App)
+App.vue (helloworld.vue is also imported in this file to show rest of the hmtl contents with the App.vue on the webpage) => contents from App.vue is shown on the webpage.
+
+.Vue file:
+contains 3 blocks:
+<template>HTML structure</template>
+<script>logics and functionality (javascript)</script>
+<style>CSS block</style>
+
+Binding Text:
+binding data (text) from script block to the template block.
+1.we do this using mushtach syntax in vue {{name}}, the name contains the value in the function data() which returned a object.
+2.another way to bind a text is to use directive which is a special html attribute and for binding text it is called and written as (v-text).
+
+Binding HTML:
+(v-html) if we want to add a tag with the text from the data. we use this to render the html tag portion with the text.
+
+Binding Attributes:
+(v-bind) is used for binding html attributes like id, class, style even boolean attributes like disabled, enabled etc. syntax= v-bind:id="headingId",v-bind:class="abc", v-bind:disabled="isDisabled".
+
+Binding Classes: 
+(v-bind) is used for binding html classes. It is used for dynamic classes. syntax= v-bind:class="abc". Also can be used for conditional binding. Different classes can be used or can be binded using array and objects.
+
+Binding styles: 
+(v-bind) is used for binding html style attribute. It is used for dynamic styling. syntax= v-bind:style="abc". Also can be used for conditional binding. Different styles can be used or can be binded using array and objects.
