@@ -5,6 +5,9 @@ v-bind: for binding html attributes.
 v-bind(class): for binding classes which can be used for dynamic classes.
 v-bind(style): for binding styles which can be used for dynamic styling.
 
+CONDITIONAL RENDERING:
+
+
 CONTROL FLOW: 
 index.html (contains the root dom node) => <div> with id "app" =>
 main.js () => createApp imported from 'vue' => App imported from ./App.vue => (#app) is mounted with cearteApp(App)
@@ -28,7 +31,7 @@ Binding Attributes:
 (v-bind) is used for binding html attributes like id, class, style even boolean attributes like disabled, enabled etc. syntax= v-bind:id="headingId",v-bind:class="abc", v-bind:disabled="isDisabled".
 
 Binding Classes: 
-(v-bind) is used for binding html classes. It is used for dynamic classes. syntax= v-bind:class="abc". Also can be used for conditional binding. Different classes can be used or can be binded using array and objects.
+(v-bind) is used for binding html classes. It is used for dynamic classes. syntax= v-bind:class="abc". Also can be used for conditional binding. Different classes can be used or can be binded using array syntax and objects syntax.
 
 Binding styles: 
-(v-bind) is used for binding html style attribute. It is used for dynamic styling. syntax= v-bind:style="abc". Also can be used for conditional binding. Different styles can be used or can be binded using array and objects.
+(v-bind) is used for binding html style attribute. It is used for dynamic styling. syntax= v-bind:style="abc". Also can be used for conditional binding. Different styles can be used or can be binded using array syntax and objects syntax.
