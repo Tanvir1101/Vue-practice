@@ -6,7 +6,14 @@ v-bind(class): for binding classes which can be used for dynamic classes.
 v-bind(style): for binding styles which can be used for dynamic styling.
 
 CONDITIONAL RENDERING:
+v-if:
+v-else:
+v-else-if: 
+v-show:
 
+LIST RENDERING: 
+v-for: using arrays and objects for rendering lists. indexing(position number) can be used if required
+scenarios: array of strings, array of objects, array of arrays, block of html elements, object key value pairs.
 
 CONTROL FLOW: 
 index.html (contains the root dom node) => <div> with id "app" =>
@@ -35,3 +42,5 @@ Binding Classes:
 
 Binding styles: 
 (v-bind) is used for binding html style attribute. It is used for dynamic styling. syntax= v-bind:style="abc". Also can be used for conditional binding. Different styles can be used or can be binded using array syntax and objects syntax.
+
+LIST RENDETING:
