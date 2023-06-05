@@ -1,130 +1,67 @@
 <template>
-  <div></div>
-
-  <h2 v-for="(name, index) in names" :key="name"> {{ index }} {{ name }}</h2>
-  <h2 v-for="(name, index) in fullNames" :key="name.first"> {{ index }} {{ name.first}} {{ name.last }}</h2>
-  
-  <div v-for="actor in actors" :key="actor.actorname">
-    <h2>{{ actor.actorname }}</h2>
-    <h3 v-for="movie in actor.movies" :key="movie">
-      <div v-if="movie.length > 3">
-        {{ movie.slice(0,3) }}....
-      </div>
-      <div v-else>{{ movie }}</div>
-    </h3>
+  <div>
+    <pre>
+      {{ JSON.stringify(formValues, null, 2) }}
+    </pre>
   </div>
-
-  <h2 v-for="(value, key, index) in myInfo" :key="value">{{ index }} {{ key }} {{ value }}</h2>
-
-  <!-- <div>
-    <h2 v-if="num === 0">This number is zero</h2>
-    <h2 v-else-if="num < 0">This number is negative</h2>
-    <h2 v-else-if="num > 0">This number is positive</h2>
-    <h2 v-else>Not a number</h2>
-
-    <div v-if="display">
-      <h2>Tanvir</h2>
-      <h2>Shahriar</h2>
-      <h2>Vue Js</h2>
+  <form>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" v-model="formValues.name">
+    </div>
+    <div>
+      <label for="profile">Profile</label>
+      <textarea id="profile" v-model="formValues.profileSummary"></textarea>
+    </div>
+    <div>
+      <label for="country">Country</label>
+      <select id="country" v-model="formValues.country">
+        <option value="">Select a country</option>
+        <option value="bangladesh">Bangladesh</option>
+        <option value="japan">Japan</option>
+        <option value="korea">Korea</option>
+      </select>
+    </div>
+    <div>
+      <label for="job-location">Job Location</label>
+      <select id="job-location" multiple v-model="formValues.jobLocation">
+        <option value="bangladesh">Bangladesh</option>
+        <option value="japan">Japan</option>
+        <option value="korea">Korea</option>
+      </select>
     </div>
 
-    <h2 v-show="showElement">Using V-show</h2>
-  </div> -->
-  <!-- <div>
-    <h1>{{ greet }} {{ name }}</h1>
-    <h1>{{ bhtml }}</h1>
-    <h2 v-text="channel"></h2>
-    <p v-html="bhtml"></p>
-    <h2 :id="headingID">Heading</h2>
-    <button :disabled="isDisabled">Bind</button>
-    <h2 class="italic" :class="status">Status</h2>
-    <h2 :class="isPromoted && 'promoted'">Promoted Movie</h2>
-    <h2 :class="isSoldout ? 'sold-out' : 'new'">Movie soldout?</h2>
-    <h2 :class="['new', 'promoted']">Newly promoted movies</h2>
-    <h2 :class="{
-      'promoted': isPromoted,
-      'new': !isSoldout,
-      'sold-out': isSoldout
-    }">Object conditional movie</h2>
-    <h2 :class="[isPromoted && 'promoted', isSoldout ? 'sold-out' : 'new']">Array Conditional Movies</h2>
-    <h2 :style="{
-      'color': fontColor,
-      'fontSize': headersize,
-    }">Inline Styling Using object</h2>
-    <h2 :style="headerStyleObject">Header Style using object</h2>
-    <h2 :style="[successStyleObject, baseStyleObject]">Success Style</h2>
-  </div> -->
+    <div>
+      <input type="checkbox" id="remoteWork" v-model="formValues.remoteWork">
+      <label for="remoteWork">Open for remote work?</label>
+    </div>
+
+  </form>
 </template>
 
 <script>
-
 
 export default {
   name: 'App',
   data() {
     return {
-
-      names: ['Bruce', 'Clark', 'Diana'], //array of strings using v-bind directive
-
-      fullNames:[                         //array of objects using v-bind directive
-        {first: 'Bruce', last: 'Wayne'},
-        {first: 'Clark', last: 'Kent'},
-        {first: 'Princess', last: 'Diana'},
-      ],
-
-      actors: [                          //array of arrays using v-bind directive
-        {
-          actorname: 'Christian Bale',
-          movies: ['Batman', 'The prestigw'], 
-        },
-        {
-          actorname: 'Leonardo Di Caprio',
-          movies: ['titanic', 'Inception', 'ET'],
-        }
-
-      ],
-
-      myInfo: {
-        name: 'Tanvir',
-        channeL: 'Calverin',
-        course: 'vue3',
+      formValues: {
+        name: '',
+        profileSummary: '',
+        country: '',
+        jobLocation: [],
+        remoteWork: false,
       }
+    }
 
-      
-      // num: 'abc',
-      // display: true,
-      // showElement: true,
-      // greet: 'Hello',
-      // name: 'Tanvir Shahriar',
-      // channel: 'Codevolution',
-      // bhtml: '<i>Calverin</i>',
-      // headingID: 'heading',
-      // isDisabled: false,
-      // status: "success",
-      // isPromoted: true,
-      // isSoldout: true,
-      // fontColor: 'orange',
-      // headersize: '50px',
-      // headerStyleObject: {
-      //   color: 'orange',
-      //   fontSize: '50px',
-      //   textDecoration: 'italic',
-      //   padding: '20px'
-      // },
-      // baseStyleObject: {
-      //   fontSize: '50px',
-      //   padding: '10px',
-      // },
-      // successStyleObject: {
-      //   color: 'green',
-      //   backgroundColor: 'lightgreen',
-      //   border: '1px solid green',
-      //   padding: '20px'
-      // }
-    };
+  },
 
-  }
+  methods: {
+
+
+  },
 }
+
 </script>
 
 <style>
@@ -132,9 +69,10 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
+  /* text-align: center; */
 }
 
 .success {
@@ -155,5 +93,32 @@ export default {
 
 .sold-out {
   color: red;
+}
+
+label {
+  font-weight: bold;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+input + label {
+  font-weight: bold;
+  display: inline-flex;
+  margin-right: 20px;
+}
+
+input[type='text'],
+textarea,
+select {
+  display: block;
+  width: 400px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 </style>
