@@ -4,10 +4,10 @@
       {{ JSON.stringify(formValues, null, 2) }}
     </pre>
   </div>
-  <form>
+  <form @submit.prevent="submitForm">
     <div>
       <label for="name">Name</label>
-      <input type="text" id="name" v-model="formValues.name">
+      <input type="text" id="name" v-model.trim.lazy="formValues.name">
     </div>
     <div>
       <label for="profile">Profile</label>
@@ -32,9 +32,42 @@
     </div>
 
     <div>
-      <input type="checkbox" id="remoteWork" v-model="formValues.remoteWork">
+      <input type="checkbox" id="remoteWork" v-model="formValues.remoteWork" true-value="Yes" false-value="No">
       <label for="remoteWork">Open for remote work?</label>
     </div>
+
+    <div>
+      <label>Skill Set</label>
+      <input type="checkbox" id="html" v-model="formValues.skillSet" value="html">
+      <label for="html">HTML</label>
+      <input type="checkbox" id="css" v-model="formValues.skillSet" value="css">
+      <label for="css">CSS</label>
+      <input type="checkbox" id="javascript" v-model="formValues.skillSet" value="javascript">
+      <label for="javascript">Javascript</label>
+    </div>
+
+    <div>
+      <label>Years of Experience</label>
+      <input type="radio" id="0-2" v-model="formValues.yearsOfExperience" value="0-2">
+      <label for="0-2">0-2</label>
+      <input type="radio" id="3-5" v-model="formValues.yearsOfExperience" value="3-5">
+      <label for="3-5">3-5</label>
+      <input type="radio" id="6-10" v-model="formValues.yearsOfExperience" value="6-10">
+      <label for="6-10">6-10</label>
+      <input type="radio" id="6-10" v-model="formValues.yearsOfExperience" value="6-10">
+      <label for="6-10">6-10</label>
+      <input type="radio" id="10+" v-model="formValues.yearsOfExperience" value="10+">
+      <label for="10+">10+</label>
+    </div>
+
+    <div>
+      <label for="age">Age</label>
+      <input @keyup.enter="submitForm" type="number" id="age" v-model.number="formValues.age">
+    </div>
+
+    <!-- <div>
+      <button>Submit</button>
+    </div> -->
 
   </form>
 </template>
@@ -50,15 +83,21 @@ export default {
         profileSummary: '',
         country: '',
         jobLocation: [],
-        remoteWork: false,
+        remoteWork: "No",
+        skillSet: [],
+        yearsOfExperience: '',
+        age: null,
+
       }
     }
 
   },
 
   methods: {
-
-
+    submitForm() {
+  // event.preventDefault();
+  console.log("form value", this.formValues);
+    }
   },
 }
 
