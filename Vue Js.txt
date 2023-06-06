@@ -6,13 +6,33 @@ v-bind(class): for binding classes which can be used for dynamic classes.
 v-bind(style): for binding styles which can be used for dynamic styling.
 v-on(event handling): used for event handling. Event object*, multiple event handlers.
 v-model(form handling): two way binding. from form to data and from data to form.
+v-once: renders the corresponding HTML element only once. after re-rendering the elemnt is treated as static content and skipped.
+v-pre: skips the compilation for the corresponding element and prints the html code as it is i.e. {{name}}
 
 MODIFIERS:
 *trim modifier(used for white space removal).
 *number modifier(given input is of type number).
 *lazy modifier(takes input then shows the whole sentence, increases performance and useful for form validation).
 ***prevent modifier(equevalent to event.preventDefault()).
-key modifier(used for specific key stroke for submiting or entering a form or something)
+key modifier(used for specific key stroke for submiting or entering a form or something).
+
+***COMPUTED PROPERTIES: (computed properties are cached)
+ways to display data in UI
+-static html
+-text interpolation
+-simple expression like mustacsh syntax
+-methods
+- new one is *computed properties*
+*used as data property.
+* practical useage: sorting and filtering data in a table.
+Computed Setters: (getter and setter)
+
+WATCHERS:
+watch any data or computed property and execute some code in resopnse to changes in the value.
+***immediate: this property will inform vue that the function should be run initially on page load. this will be used for api calling and showing dynamic data.
+***deep: for nested or deeply nested data like object and array use this.
+
+
 CONDITIONAL RENDERING:
 v-if:
 v-else:
